@@ -1,3 +1,4 @@
+alert("SCRIPT ISHLADI");
 // Header scroll effekti
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
