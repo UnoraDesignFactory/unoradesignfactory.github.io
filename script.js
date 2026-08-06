@@ -106,3 +106,11 @@ form.addEventListener("submit", async function (e) {
             "❌ Xatolik yuz berdi!";
     }
 });
+
+function openModal() {
+    document.getElementById("registerModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("registerModal").style.display = "none";
+}
