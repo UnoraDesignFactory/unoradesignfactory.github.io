@@ -172,6 +172,27 @@
             </a>
         </div>
     </section>
+    <!-- REGISTRATSIYA OYNASI -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2>Buyurtma berish</h2>
+
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Ism" required>
+            <input type="text" id="surname" placeholder="Familya" required>
+            <input type="tel" id="phone" placeholder="+998 90 123 45 67" required>
+            <textarea id="address" placeholder="Manzil" required></textarea>
+
+            <button type="submit" class="btn glow">
+                📩 Buyurtma yuborish
+            </button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+</div>
 
     <script src="script.js"></script>
 </body>
