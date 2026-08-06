@@ -9,15 +9,6 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// ===== OYNADAN TASHQARIGA BOSILSA YOPILADI =====
-window.addEventListener("click", function (e) {
-    const modal = document.getElementById("registerModal");
-
-    if (e.target === modal) {
-        closeModal();
-    }
-});
-
 // 3D card effekti
 const cards = document.querySelectorAll(".card");
 
@@ -44,73 +35,3 @@ cards.forEach(card => {
             "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
     });
 });
-
-// ===== TELEGRAM SOZLAMALARI =====
-const TOKEN = "8224078125:AAGZFu_HYyezVo4rZPLCUS4-uStlDxla17w";
-const CHAT_ID = "7523793773";
-
-// ===== MODALNI OCHISH =====
-function openModal() {
-    document.getElementById("registerModal").style.display = "flex";
-}
-
-// ===== MODALNI YOPISH =====
-function closeModal() {
-    document.getElementById("registerModal").style.display = "none";
-}
-
-// ===== FORMANI OLISH =====
-const form = document.getElementById("registerForm");
-
-// ===== BUYURTMANI TELEGRAMGA YUBORISH =====
-form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const surname = document.getElementById("surname").value;
-    const phone = document.getElementById("phone").value;
-    const address = document.getElementById("address").value;
-
-    const text = `🛋 UNORA DESIGN FACTORY
-
-📦 Yangi buyurtma!
-
-👤 Ism: ${name}
-👨‍👩‍👦 Familya: ${surname}
-📞 Telefon: ${phone}
-📍 Manzil: ${address}`;
-
-    try {
-        await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                text: text
-            })
-        });
-
-        document.getElementById("message").innerText =
-            "✅ Buyurtma muvaffaqiyatli yuborildi!";
-
-        form.reset();
-
-        setTimeout(() => {
-            closeModal();
-        }, 2000);
-
-    } catch (error) {
-        document.getElementById("message").innerText =
-            "❌ Xatolik yuz berdi!";
-    }
-});
-
-function openModal() {
-    document.getElementById("registerModal").style.display = "flex";
-}
-
-function closeModal() {
-    document.getElementById("registerModal").style.display = "none";
-}
