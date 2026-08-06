@@ -114,3 +114,5 @@ function openModal() {
 function closeModal() {
     document.getElementById("registerModal").style.display = "none";
 }
+
+alert("SCRIPT ISHLADI");
