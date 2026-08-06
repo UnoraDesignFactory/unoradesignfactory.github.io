@@ -9,6 +9,42 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// ===== OYNADAN TASHQARIGA BOSILSA YOPILADI =====
+window.addEventListener("click", function (e) {
+    const modal = document.getElementById("registerModal");
+
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// 3D card effekti
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = (x / rect.width - 0.5) * 15;
+        const rotateX = (0.5 - y / rect.height) * 15;
+
+        card.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-10px)
+        `;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+    });
+});
+
 // ===== TELEGRAM SOZLAMALARI =====
 const TOKEN = "BU_YERGA_BOT_TOKENINGNI_YOZ";
 const CHAT_ID = "BU_YERGA_CHAT_IDINGNI_YOZ";
@@ -69,40 +105,4 @@ form.addEventListener("submit", async function (e) {
         document.getElementById("message").innerText =
             "❌ Xatolik yuz berdi!";
     }
-});
-
-// ===== OYNADAN TASHQARIGA BOSILSA YOPILADI =====
-window.addEventListener("click", function (e) {
-    const modal = document.getElementById("registerModal");
-
-    if (e.target === modal) {
-        closeModal();
-    }
-});
-
-// 3D card effekti
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const rotateY = (x / rect.width - 0.5) * 15;
-        const rotateX = (0.5 - y / rect.height) * 15;
-
-        card.style.transform = `
-            perspective(1000px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            translateY(-10px)
-        `;
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform =
-            "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
-    });
 });
