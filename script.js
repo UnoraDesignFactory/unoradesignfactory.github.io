@@ -46,8 +46,8 @@ cards.forEach(card => {
 });
 
 // ===== TELEGRAM SOZLAMALARI =====
-const TOKEN = "BU_YERGA_BOT_TOKENINGNI_YOZ";
-const CHAT_ID = "BU_YERGA_CHAT_IDINGNI_YOZ";
+const TOKEN = "8224078125:AAGZFu_HYyezVo4rZPLCUS4-uStlDxla17w";
+const CHAT_ID = "7523793773";
 
 // ===== MODALNI OCHISH =====
 function openModal() {
