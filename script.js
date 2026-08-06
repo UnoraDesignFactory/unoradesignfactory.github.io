@@ -9,6 +9,77 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// ===== TELEGRAM SOZLAMALARI =====
+const TOKEN = "BU_YERGA_BOT_TOKENINGNI_YOZ";
+const CHAT_ID = "BU_YERGA_CHAT_IDINGNI_YOZ";
+
+// ===== MODALNI OCHISH =====
+function openModal() {
+    document.getElementById("registerModal").style.display = "flex";
+}
+
+// ===== MODALNI YOPISH =====
+function closeModal() {
+    document.getElementById("registerModal").style.display = "none";
+}
+
+// ===== FORMANI OLISH =====
+const form = document.getElementById("registerForm");
+
+// ===== BUYURTMANI TELEGRAMGA YUBORISH =====
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const surname = document.getElementById("surname").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+
+    const text = `🛋 UNORA DESIGN FACTORY
+
+📦 Yangi buyurtma!
+
+👤 Ism: ${name}
+👨‍👩‍👦 Familya: ${surname}
+📞 Telefon: ${phone}
+📍 Manzil: ${address}`;
+
+    try {
+        await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: text
+            })
+        });
+
+        document.getElementById("message").innerText =
+            "✅ Buyurtma muvaffaqiyatli yuborildi!";
+
+        form.reset();
+
+        setTimeout(() => {
+            closeModal();
+        }, 2000);
+
+    } catch (error) {
+        document.getElementById("message").innerText =
+            "❌ Xatolik yuz berdi!";
+    }
+});
+
+// ===== OYNADAN TASHQARIGA BOSILSA YOPILADI =====
+window.addEventListener("click", function (e) {
+    const modal = document.getElementById("registerModal");
+
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
 // 3D card effekti
 const cards = document.querySelectorAll(".card");
 
