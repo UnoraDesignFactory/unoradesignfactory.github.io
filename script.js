@@ -48,7 +48,7 @@ cards.forEach(card => {
 
 // ===== TELEGRAM SOZLAMALARI =====
 const TOKEN = "8224078125:AAGZFu_HYyezVo4rZPLCUS4-uStlDxla17w";
-const CHAT_ID = "7523793773";
+const CHAT_ID = "259848554";
 
 // ===== MODALNI OCHISH =====
 function openModal() {
