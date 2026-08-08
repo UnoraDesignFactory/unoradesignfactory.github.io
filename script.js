@@ -47,7 +47,7 @@ cards.forEach(card => {
 });
 
 // ===== TELEGRAM SOZLAMALARI =====
-const TOKEN = "8224078125:AAGZFu_HYyezVo4rZPLCUS4-uStlDxla17w";
+const TOKEN = "8869722753:AAFGTMVxR-gIt2qT7-EVdh5VLxgmJDzjggw";
 const CHAT_ID = "259848554";
 
 // ===== MODALNI OCHISH =====
