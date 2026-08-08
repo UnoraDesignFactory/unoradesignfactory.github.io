@@ -1,4 +1,4 @@
-alert("SCRIPT ISHLADI");
+
 // Header scroll effekti
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
@@ -116,4 +116,3 @@ function closeModal() {
     document.getElementById("registerModal").style.display = "none";
 }
 
-alert("SCRIPT ISHLADI");
